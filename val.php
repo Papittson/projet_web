@@ -1,3 +1,4 @@
+<?php session_start();?> <!-- $_SESSION tableau supreglobal--> 
 <html>
   <head>
     <title> recherche </title>
@@ -6,27 +7,34 @@
   <h3> RECHERCHE </h3>
   <body>
     <?php
-    $dsn = 'mysql:host=mysql.etu.umontpellier.fr;dbname=e20200001936;charset=UTF8'; //dsn pour Data Source Name, la chaine de cararctere indique ou est le SGBD, encodage utf8
-    $username = 'e20200001936';
-    $password = 'pouetpouet';
+    $dsn = 'mysql:host=localhost:3306;dbname=bd_hai726i;charset=UTF8'; //dsn pour Data Source Name, la chaine de cararctere indique ou est le SGBD, encodage utf8
+    $username = 'root';
+    $password = '';
     $dbh = new PDO($dsn, $username, $password) or die("Pb de connexion !");
     ?>
+
     <form>
-    <select name="marque"> Marque
+    <select name="marque"> 
+      <option value=""> --choisissez une marque-- </option>
     <?php
     $sql="SELECT distinct marque FROM produits;";
-    $res=$dbh->$query($sql);
+    $sth = $dbh->prepare($sql);
+    $sth->execute();
+    $res= $sth->fetchAll();
     foreach($res as $enr){
-        echo"<option>".$enr['marque']."</option>";
+        echo"<option value =\"marque\">".$enr['marque']."</option>";
     }
     ?>
     </select>
-    <select name="categorie"> Catégorie
+
+    <select name="categorie"> 
     <?php
-    $sql="SELECT distinct catégorie FROM produits;";
-    $res=$dbh->$query($sql);
+    $sql="SELECT distinct categorie FROM produits;";
+    $sth = $dbh->prepare($sql);
+    $sth->execute();
+    $res= $sth->fetchAll();
     foreach($res as $enr){
-        echo"<option>".$enr['catégorie']."</option>";
+        echo"<option value=\"categorie\">".$enr['categorie']."</option>";
     }
     ?>
     </select>

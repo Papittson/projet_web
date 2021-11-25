@@ -30,7 +30,7 @@
 
       echo "<ul>";
       foreach ($result as $enr) {
-         echo "<li>".$enr['nom']." (".$enr['catégorie'].") de marque ".$enr['marque']." : ".$enr['prix']." euros</li>";
+         echo "<li>".$enr['nom']." (".$enr['categorie'].") de marque ".$enr['marque']." : ".$enr['prix']." euros</li>";
       }
       echo "</ul>";
     ?>
