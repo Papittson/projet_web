@@ -1,30 +1,26 @@
 <html>
-    <head>
-        <title>Créer un compte</title>
-    </head>
-    <style>
-        body {
-            text-align: center;
-            font-family: Calibri;
-        }
+<body>
+<?php
+        $dsn = 'mysql:host=localhost:3306;dbname=technoweb;charset=UTF8';
+        $username = 'root';
+        $password = '';
+        $dbh = new PDO($dsn, $username, $password) or die("Pb de connexion !");
+        
+        $sth->execute(array(
+            $email =  $_POST["email"],
+            $motDePasse = $email =  $_POST["motDePasse"],
+            $nom = $_POST["nom"],
+            $prenom = $_POST["nom"],
+            $ville = $_POST["ville"],
+            $adresse =  $_POST["adresse"],
+            $telephone = $_POST["telephone"] ));
 
-    </style>
-    <body>
-        <form action = "creationComptePost.php" method = "post">
-            <h3>Créer un compte</h3>
-            <label for = "nom">Nom : </label></br>
-            <input type = "text" id = "nom" name = "nom"></br>
-            <label for = "email">Email : </label></br>
-            <input type = "text" id = "email" name = "email"></br>
-            <label for = "nom">Mot de passe : </label></br>
-            <input type = "password" id = "motDePasse" name = "motDePasse"></br>         
-            <label for = "nom">Adresse : </label></br>
-            <textarea id = "adresse" name = "adresse" rows = "3" cols = "16"></textarea></br>            
-            <label for = "nom">Ville : </label></br>
-            <input type = "text" id = "ville" name = "ville"></br>
-            <label for = "nom">Téléphone : </label></br>
-            <input type = "text" id = "telephone" name = "telephone"></br>
-            <input type="submit" value = "OK">
-        </form>
-    </body>
-</html>
+        $sth = $dbh->prepare("(INSERT INTO clients ('email', 'motDePasse', 'nom', 'prenom', 'ville', 'adresse', 'telephone)
+        VALUES (".$email.", ".$motDePasse.", ".$nom.", "$.prenom.", ".$ville.", ".$adresse.", ".$telephone.");");
+        ?>
+
+<!-- TEST -->
+Name: <?php echo $_POST["nom"]; ?><br>
+Email address: <?php echo $_POST["email"]; ?>
+</body>
+</html> 
