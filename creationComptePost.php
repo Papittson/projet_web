@@ -15,18 +15,13 @@
         $adresse =  $_POST["adresse"];
         $telephone = $_POST["telephone"];
 
-        $sql="(INSERT INTO clients ('email', 'motDePasse', 'nom', 'prenom', 'ville', 'adresse', 'telephone')
-        VALUES ('";
-        $sql=$sql.$email."', '".$motDePasse."','".$nom."','".$prenom."', '".$ville."', '".$adresse."', '".$telephone."');";
+        $sql="INSERT INTO clients(email, motDePasse, nom, prenom, ville, adresse, telephone)
+        VALUES (";
+        $sql=$sql."'".$email."', '".$motDePasse."','".$nom."','".$prenom."', '".$ville."', '".$adresse."', '".$telephone."');";
 
         $sth = $dbh->prepare($sql);
         $sth->execute();
-
         
         ?>
-
-<!-- TEST -->
-Name: <?php echo $_POST["nom"]; ?><br>
-Email address: <?php echo $_POST["email"]; ?>
 </body>
 </html> 

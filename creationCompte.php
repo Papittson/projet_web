@@ -9,6 +9,7 @@
         }
 
     </style>
+     <script src="fonctions.js"></script>
     <body>
         <form action = "creationComptePost.php" method = "post">
             <h3>Créer un compte</h3>
@@ -26,7 +27,7 @@
             <input type = "text" id = "ville" name = "ville"></br>
             <label for = "telephone">Téléphone : </label></br>
             <input type = "text" id = "telephone" name = "telephone"></br>
-            <input type="submit" value = "OK">
+            <input type="submit" value = "OK" onclick="inscription();">
         </form>
     </body>
 </html>

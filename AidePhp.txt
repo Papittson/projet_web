@@ -1,0 +1,1 @@
+pour appeler un script php dans un autre script php : header("location"); (c'est pas le mieux)
