@@ -5,18 +5,24 @@
         $username = 'root';
         $password = '';
         $dbh = new PDO($dsn, $username, $password) or die("Pb de connexion !");
-        
-        $sth->execute(array(
-            $email =  $_POST["email"],
-            $motDePasse = $email =  $_POST["motDePasse"],
-            $nom = $_POST["nom"],
-            $prenom = $_POST["nom"],
-            $ville = $_POST["ville"],
-            $adresse =  $_POST["adresse"],
-            $telephone = $_POST["telephone"] ));
+       
 
-        $sth = $dbh->prepare("(INSERT INTO clients ('email', 'motDePasse', 'nom', 'prenom', 'ville', 'adresse', 'telephone)
-        VALUES (".$email.", ".$motDePasse.", ".$nom.", "$.prenom.", ".$ville.", ".$adresse.", ".$telephone.");");
+        $email =  $_POST["email"];
+        $motDePasse =  $_POST["motDePasse"];
+        $nom = $_POST["nom"];
+        $prenom = $_POST["nom"];
+        $ville = $_POST["ville"];
+        $adresse =  $_POST["adresse"];
+        $telephone = $_POST["telephone"];
+
+        $sql="(INSERT INTO clients ('email', 'motDePasse', 'nom', 'prenom', 'ville', 'adresse', 'telephone')
+        VALUES ('";
+        $sql=$sql.$email."', '".$motDePasse."','".$nom."','".$prenom."', '".$ville."', '".$adresse."', '".$telephone."');";
+
+        $sth = $dbh->prepare($sql);
+        $sth->execute();
+
+        
         ?>
 
 <!-- TEST -->
