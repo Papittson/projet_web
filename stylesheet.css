@@ -1,0 +1,67 @@
+:root {
+    --color: rgb(255, 255, 255);
+    --bg-color: rgb(43, 43, 43);
+ }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body{
+    font-family: 'Rubik', sans-serif;
+    background-color: var(--bg-color);
+}
+.titleRecherche{
+    margin-left: 25px;
+    font-size: 3.2rem;
+}
+
+form{
+    margin-left: 25px;
+    color:black;
+}
+
+
+.searchBar{
+    padding: 0%;
+    margin: 0%;
+    box-shadow: 0 -50px black;
+    
+}
+
+img{
+    max-width: 300px;
+
+}
+
+.searchButton{
+    background-color: rgb(26, 26, 26);
+    color: rgb(255, 255, 255);
+    ;
+}
+
+.prixTitle{
+    color :rgb(255, 255, 255);
+    font-size: 2rem;
+}
+
+.resultsBG{
+    background-color:rgb(29, 29, 29) ;
+    color :rgb(255, 255, 255);
+    font-size: 1.5rem;
+}
+#listeResultats{
+    margin-left: 50px;
+}
+.results{
+    font-size: 3rem;
+    margin-left: 25px;
+  
+}
