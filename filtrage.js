@@ -106,7 +106,7 @@ for(product of result.produits){
         result_content_img.setAttribute("src",product.photo);
         tag_result_item.appendChild(result_content_img);
         document.getElementById("listeResultats").appendChild(tag_result_item);
-        document.getElementById("listeResultats").insertAdjacentHTML("beforeend",`<button id=\"${product.idProduit}\" onclick=\"addToCart()\">Ajouter au panier</button>`);
+        document.getElementById("listeResultats").insertAdjacentHTML("beforeend",`<button id=\"productId${product.idProduit}\" onclick=\"addToCart()\">Ajouter au panier</button>`);
 
 
 }

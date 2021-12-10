@@ -9,6 +9,7 @@
         }
 
     </style>
+    <script src="fonctions.js"></script>
     <body>
         <form action = "loginAction.php" method = "post">
             <h3>Connexion</h3>
@@ -16,7 +17,7 @@
             <input type = "text" id = "email" name = "email"><br>
             <label for = "nom">Mot de passe : </label><br>
             <input type = "password" id = "motDePasse" name = "motDePasse"><br><br>
-            <input type="submit" value = "OK">
+            <input type="submit" value = "OK" onclick="connexion()">
         </form>
     </body>
 </html>

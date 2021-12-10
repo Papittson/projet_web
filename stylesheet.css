@@ -1,6 +1,6 @@
 :root {
-    --color: rgb(255, 255, 255);
-    --bg-color: rgb(43, 43, 43);
+    --color: rgb(0, 0, 0);
+    --bg-color: rgb(253, 246, 237);
  }
 
 * {
@@ -53,8 +53,8 @@ img{
 }
 
 .resultsBG{
-    background-color:rgb(29, 29, 29) ;
-    color :rgb(255, 255, 255);
+    background-color:var(--bg-color) ;
+    color :rgb(29, 29, 29);
     font-size: 1.5rem;
 }
 #listeResultats{
