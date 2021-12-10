@@ -39,6 +39,7 @@
     </select>
 
 
+
     <select name="categorie" id="listeCategorie" onchange="synchronizeList('categorie');">
       <option value="" disabled selected hidden>--Choisissez une catégorie--</option>
       <?php
@@ -59,6 +60,10 @@
     <button type='button' onclick="resetFilters();"> Réinitialiser les filtres </button>
     <button class="searchButton"> Rechercher</button>
   </form>
+
+  <button type='button' onclick="location.href='creationCompte.php'" >S'inscrire</button>
+  <button type='button' onclick="location.href='login.php'" >Se connecter</button>
+
   </div>
 
   <div class="resultsBG"> 
