@@ -2,13 +2,7 @@
     <head>
         <title>Créer un compte</title>
     </head>
-    <style>
-        body {
-            text-align: center;
-            font-family: Calibri;
-        }
-
-    </style>
+    <link rel="stylesheet" href="stylesheet.css" />
      <script src="fonctions.js"></script>
     <body>
         <form action = "creationComptePost.php" method = "post">
