@@ -1,6 +1,6 @@
-<html>
+<?php
 
-<body>
+session_start(); ?>
         <?php
         $dsn = 'mysql:host=localhost:3306;dbname=technoweb;charset=UTF8';
         $username = 'root';
@@ -20,13 +20,14 @@
                 $emailList[] = $enr['email'];
         }
         if (in_array($email, $emailList)) {
-                $sqlGetMotDePasse = "SELECT motDePasse from clients where email='" . $email . "';";
+                $sqlGetMotDePasse = "SELECT nom,prenom,motDePasse from clients where email='" . $email . "';";
                 $sth = $dbh->prepare($sqlGetMotDePasse);
                 $sth->execute();
-                $resultMotDePasse = $sth->fetchAll();
-                $realMotDePasse=$resultMotDePasse[0]['motDePasse'];
+                $resultNomMdP = $sth->fetchAll();
+                $realMotDePasse=$resultNomMdP[0]['motDePasse'];
                 if(strcmp($motDePasse,$realMotDePasse)==0){
-                        echo "Connexion Réussie !";
+                        $returnContent=array("nom"=>$resultNomMdP[0]['nom'],"prenom"=>$resultNomMdP[0]['prenom']);
+                        echo JSON_encode($returnContent) ;
                 }else{
                         echo "Mot de passe incorrect";
                 }

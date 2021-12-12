@@ -1,3 +1,6 @@
+<?php
+
+session_start(); ?>
 
 <?php
 $dsn = 'mysql:host=localhost:3306;dbname=technoweb;charset=UTF8'; //dsn pour Data Source Name, la chaine de cararctere indique ou est le SGBD, encodage utf8

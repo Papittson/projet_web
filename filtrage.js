@@ -99,14 +99,19 @@ function synchronizeList(type) {
 $("#listeResultats").empty();
 for(product of result.produits){
   console.log(product);
+  var tag_result_div = document.createElement("div");
   var tag_result_item = document.createElement("li");
         var result_content_item = document.createTextNode("Nom du produit : "+product.nom+"\nDescription : "+product.description+"\nPrix : "+product.prix);
         tag_result_item.appendChild(result_content_item);
+        
         var result_content_img = document.createElement("img");
         result_content_img.setAttribute("src",product.photo);
         tag_result_item.appendChild(result_content_img);
-        document.getElementById("listeResultats").appendChild(tag_result_item);
-        document.getElementById("listeResultats").insertAdjacentHTML("beforeend",`<button id=\"productId${product.idProduit}\" onclick=\"addToCart()\">Ajouter au panier</button>`);
+        tag_result_div.appendChild(tag_result_item);
+        tag_result_div.setAttribute("id",product.idProduit);
+        tag_result_div.setAttribute("onclick",`location.href='pageAffichageProduit.php?idProduit=${product.idProduit}'`);
+        document.getElementById("listeResultats").appendChild(tag_result_div);
+        
 
 
 }

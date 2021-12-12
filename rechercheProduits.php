@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+
+<?php
+session_start(); ?>
 <!-- $_SESSION tableau superglobal-->
 
 <!DOCTYPE html>
@@ -52,7 +54,7 @@
       }
       ?>
     </select>
-    <label class="prixTitle"onchange="synchronizeList('categorie')">Prix</label>
+    <label class="prixTitle"onchange="synchronizeList('categorie')">Prix Max</label>
     <input type="number" id="prix" name="prix"
          min=0
          max=1000>
@@ -73,6 +75,7 @@
       </ul>
       </p>
   </div>
+  <?php echo $_SESSION['panier'];?>
 
   <script src="fonctions.js"></script>
 <script src="filtrage.js"></script>
