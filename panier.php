@@ -51,11 +51,12 @@ $dbh = new PDO($dsn, $username, $password) or die("Pb de connexion !");
         $description=$resPdt[0]['description'];
         $photo=$resPdt[0]['photo'];
         $marque=$resPdt[0]['marque'];
+        $prixTotal+=$prix*$quantite;
         echo "<li> Nom du Produit : ".$nom."<br/>Marque :".$marque."<br/>Prix à l'unité : ".$prix."€<br/>Quantite : ".$quantite."<img src=\"".$photo."\"/></li>";
         }
             ?>
     </ul>
-    <?php echo json_encode($_SESSION['panier']);?>
+    <p> TOTAL : <?php echo $prixTotal ; ?>€ </p>
 </body>
 </html>
 
