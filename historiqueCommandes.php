@@ -11,21 +11,17 @@ session_start(); ?>
         $dateCommande = $_POST[getdate()];
         $email =  $_POST["email"];
         $etat =  $_POST["etat"];
-        $nom =  $_POST["nom"];
-        $marque =  $_POST["marque"];
-        $prix =  $_POST["prix"];
 
         $sql="INSERT INTO commandes(dateCommande, email, etat, nom, marque, prix) VALUES(";
-        $sql=$sql."'".$dateCommande."','".$email."', 'paiement confirmé', '".$nom."',,'".$marque."',,'".$prix."',);";
+        $sql=$sql."'".$dateCommande."','".$email."', 'paiement confirmé');";
         $sth = $dbh->prepare($sql);
         $sth->execute();
 
         $commandes = $sth->fetchAll();
 
         $dateCommande=$commandes[0]['dateCommande'];
-        $nom=$email[0]['email'];
-        $nom=$commandes[0]['nom'];
-        $marque=$commandes[0]['marque'];
-        $prix=$commandes[0]['prix'];
-        echo "<li> Email :".$email."<br/>Date de commande :".$dateCommande."<br/>Nom du Produit : ".$nom."<br/>Marque :".$marque."<br/>Prix : ".$prix."</li>";
+        $email=$commandes[0]['email'];
+        $etat=$commandes[0]['etat'];
+        echo "<li> Email :".$email."<br/>Date de commande :".$dateCommande."<br/>Etat de la Commande : ".$etat."</li>";
+        echo "test : ".$_SESSION['panier'];
 ?>
