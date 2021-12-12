@@ -9,13 +9,7 @@ session_start(); ?>
 <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
-    <style>
-        body {
-            text-align: center;
-            font-family: Calibri;
-        }
-
-    </style>
+    <link rel="stylesheet" href="stylesheet.css" />
      <script src="fonctions.js"></script>
     <body>
         <form action = "creationComptePost.php" method = "post">
