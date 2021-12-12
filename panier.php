@@ -58,7 +58,7 @@ $dbh = new PDO($dsn, $username, $password) or die("Pb de connexion !");
     </ul>
     <p> TOTAL : <?php echo $prixTotal ; ?>€ </p>
     <button type="button" onclick="paiement()">Paiement</button>
-
+<script src="fonctions.js"></script>
 </body>
 </html>
 
