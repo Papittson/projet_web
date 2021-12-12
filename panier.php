@@ -2,10 +2,14 @@
 <?php 
 
 session_start();
+
 if($_POST){
 
+if(empty($_SESSION['panier'])){
+    echo "Votre panier est vide";
+}
 if(in_array($_POST['idProduit'],$_SESSION['panier'])){
-    $_SESSION['panier']['idProduit']+=$_POST['quantite'];
+    $_SESSION['panier'][$_POST['idProduit']]+=$_POST['quantite'];
 }else{
     $_SESSION['panier'][$_POST['idProduit']] = $_POST['quantite'];
 }
@@ -29,7 +33,7 @@ $dbh = new PDO($dsn, $username, $password) or die("Pb de connexion !");
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-
+<h1>PANIER </h1>
     <ul>
         <?php 
         
@@ -41,14 +45,13 @@ $dbh = new PDO($dsn, $username, $password) or die("Pb de connexion !");
         $sth = $dbh->prepare($sql);
         $sth->execute();
         $resPdt = $sth->fetchAll();
-        echo $sql;
-        echo json_encode($resPdt);
+        
         $nom=$resPdt[0]['nom'];
         $prix=$resPdt[0]['prix'];
         $description=$resPdt[0]['description'];
         $photo=$resPdt[0]['photo'];
         $marque=$resPdt[0]['marque'];
-        echo "<li> Nom du Produit : ".$nom."    Marque :".$marque."\nPrix à l'unité : ".$prix."€\nQuantite : ".$quantite."</li>";
+        echo "<li> Nom du Produit : ".$nom."<br/>Marque :".$marque."<br/>Prix à l'unité : ".$prix."€<br/>Quantite : ".$quantite."<img src=\"".$photo."\"/></li>";
         }
             ?>
     </ul>

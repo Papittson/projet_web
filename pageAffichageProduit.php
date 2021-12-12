@@ -37,7 +37,7 @@ $marque=$resPdt[0]['marque'];
 <?php echo $marque; ?></br>
 <img src="<?php echo $photo;?>"/>
 <form method="POST" action="panier.php">
-<button name="<?php echo $idProduit;?>" id="addToCartButton" value="<?php echo $idProduit;?>" onclick="goToCart()">Ajouter au panier</button>
+<button name="idProduit" id="addToCartButton" value="<?php echo $idProduit;?>" onclick="goToCart()">Ajouter au panier</button>
 
 <input  name="quantite" id="qty" type="number" value="1" step="1" max="10" min="1"/>
 
