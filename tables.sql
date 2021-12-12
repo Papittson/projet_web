@@ -22,10 +22,6 @@ ALTER TABLE Produits AUTO_INCREMENT=1;
 INSERT INTO Produits (nom, marque, categorie, description, prix , stock, photo) VALUES ("Redmi note 7", "Xiaomi","téléphone","plutôt chouette téléphone", 299.99, 500,"https://c1.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2019/04/xiaomi-redmi-note-7-frandroid-2019.png?resize=580,580") , ("Redmi note 8", "Xiaomi","téléphone","plutôt très chouette téléphone", 499.99, 500,"https://c0.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2021/07/xiaomi-redmi-note-8-2021-frandroid-2021.png?resize=580,580") ,("Pad 5", "Xiaomi","tablette","plutôt chouette tablette", 399.99, 150,"https://images.frandroid.com/wp-content/uploads/2021/08/xiaomi-mi-pad-5-frandroid-2021.png");
 INSERT INTO Produits(nom, marque, categorie, description, prix , stock,photo) VALUES ("Galaxy note 5", "Samsung","téléphone","plutôt chouette téléphone", 485.99, 500,"https://c2.lestechnophiles.com/images.frandroid.com/wp-content/uploads/2019/04/samsung-galaxy-note-5-2.png?resize=580,580"),("Iphone 6S","Apple","téléphone","chouette téléphone",500.75,350,"https://support.apple.com/library/APPLE/APPLECARE_ALLGEOS/SP726/SP726-iphone6s-rosegold-select-2015.png");
 
-ALTER TABLE commandes ADD nom varchar(255);
-ALTER TABLE commandes ADD marque varchar(255);
-ALTER TABLE commandes ADD prix float;
-
-ALTER TABLE commandes ADD CONSTRAINT NOM_FK foreign key(nom) references produits(nom);
-ALTER TABLE commandes ADD CONSTRAINT MARQUE_FK foreign key(marque) references produits(marque);
-ALTER TABLE commandes ADD CONSTRAINT PRIX_FK foreign key(prix) references produits(prix);
+ALTER TABLE commandes DROP nom;
+ALTER TABLE commandes DROP marque;
+ALTER TABLE commandes DROP prix;
