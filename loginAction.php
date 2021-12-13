@@ -27,7 +27,7 @@ session_start(); ?>
                 $realMotDePasse=$resultNomMdP[0]['motDePasse'];
                 if(strcmp($motDePasse,$realMotDePasse)==0){
                         $returnContent=array("nom"=>$resultNomMdP[0]['nom'],"prenom"=>$resultNomMdP[0]['prenom']);
-                        echo JSON_encode($returnContent) ;
+                        $_SESSION['email']=$email;       
                 }else{
                         echo "Mot de passe incorrect";
                 }

@@ -1,14 +1,13 @@
 <?php
 session_start(); ?>
-<html>
-<body>
+
 <?php
         $dsn = 'mysql:host=localhost:3306;dbname=technoweb;charset=UTF8';
         $username = 'root';
         $password = '';
         $dbh = new PDO($dsn, $username, $password) or die("Pb de connexion !");
        
-
+        if(isset($_POST)){
         $email =  $_POST["email"];
         $motDePasse =  $_POST["motDePasse"];
         $nom = $_POST["nom"];
@@ -23,7 +22,7 @@ session_start(); ?>
 
         $sth = $dbh->prepare($sql);
         $sth->execute();
-        
+        $_SESSION['email']=$email;
+}
         ?>
-</body>
-</html> 
+

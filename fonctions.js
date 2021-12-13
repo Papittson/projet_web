@@ -4,23 +4,24 @@ function resetFilters() {
   document.getElementById("prix").value = "";
 }
 
-var email = document.getElementById("email").value;
+
+
+function inscription() {
+  var email = document.getElementById("email").value;
 var motDePasse = document.getElementById("motDePasse").value;
 var nom = document.getElementById("nom").value;
 var prenom = document.getElementById("prenom").value;
 var ville = document.getElementById("ville").value;
 var adresse = document.getElementById("adresse").value;
 var telephone = document.getElementById("telephone").value;
-
-function inscription() {
   var data = {
-    email: email,
-    motDePasse: motDePasse,
-    nom: nom,
-    prenom: prenom,
-    ville: ville,
-    adresse: adresse,
-    telephone: telephone,
+    "email": email,
+    "motDePasse": motDePasse,
+    "nom": nom,
+    "prenom": prenom,
+    "ville": ville,
+    "adresse": adresse,
+    "telephone": telephone,
   };
   var XHR = new XMLHttpRequest();
   var urlEncodedData = "";
@@ -55,12 +56,17 @@ function inscription() {
   // Ajoutez l'en-tête HTTP requise pour requêtes POST de données de formulaire
   XHR.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 
-  // Finalement, envoyez les données.
+ 
+
   XHR.send(urlEncodedData);
+
+  window.location.href="profil.php";
 }
 
 function connexion() {
-  var data = { email: email, motDePasse: motDePasse };
+  var email = document.getElementById("email").value;
+var motDePasse = document.getElementById("motDePasse").value;
+  var data = { "email": email, "motDePasse": motDePasse };
   var XHR = new XMLHttpRequest();
   var urlEncodedData = "";
   var urlEncodedDataPairs = [];
@@ -96,6 +102,8 @@ function connexion() {
 
   // Finalement, envoyez les données.
   XHR.send(urlEncodedData);
+  location.href="profil.php";
+  
 }
 
 

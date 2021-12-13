@@ -43,6 +43,18 @@ if(preg_match('/\S/', $_GET['prix'])){
 }
 
 
+if(preg_match('/\S/', $_GET['nom'])){
+    $nom=$_GET['nom'];
+    if($checkFilters){
+        $sql=$sql." AND nom like '%".$nom."%'"; //% e.r. pour un nombre incalculaable de caractère et nptql caractère
+    }else{
+        $sql=$sql." WHERE nom like '%".$nom."%'";
+    }
+}
+
+
+
+
 $sth = $dbh->prepare($sql);
 $sth->execute();
 $result = $sth->fetchAll();
