@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXISTS technoweb;
+
 DROP TABLE IF EXISTS Clients, Commandes, LignesCommandes, Produits;
 
 CREATE TABLE Clients(email varchar(255),motDePasse varchar(255),nom varchar(255), prenom varchar(255),ville varchar(255), adresse varchar(255),telephone varchar(10));
