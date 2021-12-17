@@ -6,6 +6,7 @@ session_start(); ?>
         <link rel="stylesheet" href="stylesheet.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<script src="https://kit.fontawesome.com/0a7077b38f.js" crossorigin="anonymous"></script>
 <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
@@ -29,6 +30,6 @@ session_start(); ?>
             <label for = "telephone">Téléphone : </label></br>
             <input type = "text" id = "telephone" name = "telephone"></br>
             <button value = "OK" onclick="inscription();"> Valider</button>
-        
+            <div onclick="location.href='rechercheProduits.php'"><i class="fas fa-home"></i></div>
     </body>
 </html>

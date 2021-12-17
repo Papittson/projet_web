@@ -111,7 +111,7 @@ function synchronizeList(type) {
           "onclick",
           `location.href='pageAffichageProduit.php?idProduit=${product.idProduit}'`
         );
-        tag_result_div.setAttribute("class","result_display")
+        tag_result_div.setAttribute("class","result_display clickable")
         document.getElementById("listeResultats").appendChild(tag_result_div);
       }
     }

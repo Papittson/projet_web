@@ -29,18 +29,14 @@ session_start(); ?>
                         $returnContent=array("nom"=>$resultNomMdP[0]['nom'],"prenom"=>$resultNomMdP[0]['prenom']);
                         $_SESSION['email']=$email;       
                 }else{
-                        echo "Mot de passe incorrect";
+                        echo "wrong_password";
                 }
                 
                
+        }else{
+                echo "no_account";
         }
 
 
 
 
-
-       
-       /* if ($_SERVER [$REQUEST_METHOD] == "POST") {
-                $email [$REQUEST(email)];
-                echo $email;
-        }*/

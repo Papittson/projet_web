@@ -36,6 +36,7 @@ $dbh = new PDO($dsn, $username, $password) or die("Pb de connexion !");
     <title>Panier</title>
     <link rel="stylesheet" href="stylesheet.css" />
     <script src="fonctions.js"></script>
+    <script src="https://kit.fontawesome.com/0a7077b38f.js" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
@@ -69,7 +70,7 @@ $dbh = new PDO($dsn, $username, $password) or die("Pb de connexion !");
          <button type=\"button\" onclick=\"paiement()\">Paiement</button>";
         }
         ?>
-
+<div onclick="location.href='rechercheProduits.php'"><i class="fas fa-home"></i></div>
 
 </body>
 

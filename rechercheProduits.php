@@ -63,13 +63,13 @@ session_start(); ?>
 
           <button type='button' onclick="resetFilters();"> Réinitialiser les filtres </button>
 
-          <i class="fas fa-search" onclick="synchronizeList('nom')"></i>
+          <i class="fas fa-search clickable" onclick="synchronizeList('nom')"></i>
 
         </form>
       </div>
 
       <div class="loginSigninButtonCart">
-        <i class="fas fa-shopping-basket" onclick="location.href='panier.php'"></i>
+        <i class="fas fa-shopping-basket clickable" onclick="location.href='panier.php'"></i>
         <?php if (isset($_SESSION['email'])) {
           $sql = "SELECT nom,prenom from clients where email='" . $_SESSION['email'] . "';";
           $sth = $dbh->prepare($sql);
@@ -90,7 +90,7 @@ session_start(); ?>
 
     </div>
     <div class="resultsBG">
-      <div class="results" id="listeResultats">
+      <div class="results clickable" id="listeResultats">
         
       </div>
     </div>

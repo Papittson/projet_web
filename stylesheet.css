@@ -1,6 +1,6 @@
 :root {
     --color: #223c37;
-    --bg-color: #e0c6b3;
+    --bg-color: #ffede1;
  }
 
 * {
@@ -10,11 +10,10 @@
     text-decoration: none;
 }
 
-html {
-	font-size: 70.5%;
-}
+
 
 body{
+    padding: 1rem;
     font-family: 'Rubik', sans-serif;
     background-color: var(--bg-color);
     color : var(--color);
@@ -26,11 +25,19 @@ form{
     
 }
 
+i{
+    font-size: 40px;
+    cursor: pointer;
+}
+
+.clickable:hover{
+    cursor: pointer;
+}
 
 .searchBar{
     padding: 0%;
     margin: 0%;
-    box-shadow: 0 -50px black;
+    
     
 }
 
@@ -75,7 +82,7 @@ img{
 
 
 .results{
-    font-size: 3rem;
+    font-size: 1rem;
     margin-left: 25px;
     display: flex;
     flex-basis: 20%;

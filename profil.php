@@ -11,9 +11,13 @@ session_start(); ?>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/0a7077b38f.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+<div onclick="location.href='rechercheProduits.php'"><i class="fas fa-home"></i></div>
+<div><i class="fas fa-shopping-basket clickable" onclick="location.href='panier.php'"></i></div>
+<div class="clickable" onclick="location.href='historiqueCommandes.php'">Historique des commandes</div>
 <?php
         $dsn = 'mysql:host=localhost:3306;dbname=technoweb;charset=UTF8';
         $username = 'root';

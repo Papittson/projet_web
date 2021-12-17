@@ -28,7 +28,14 @@ $marque=$resPdt[0]['marque'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="stylesheet.css" />
+    <script src="fonctions.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/0a7077b38f.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title><?php echo $nom ?></title>
 </head>
 <body>
 <p><?php echo $nom; ?></br>
@@ -43,6 +50,8 @@ $marque=$resPdt[0]['marque'];
 
 </form>
 </p>
+
+<div onclick="location.href='rechercheProduits.php'"><i class="fas fa-home"></i></div>
 
 <script src="fonctions.js"></script>
 </body>

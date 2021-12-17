@@ -2,6 +2,7 @@ function resetFilters() {
   document.getElementById("listeMarque").value = "";
   document.getElementById("listeCategorie").value = "";
   document.getElementById("prix").value = "";
+  synchronizeList('categorie');
 }
 
 /***************************************************************************************/
@@ -61,16 +62,19 @@ function connexion() {
     );
   }
   urlEncodedData = urlEncodedDataPairs.join("&").replace(/%20/g, "+");
-  XHR.addEventListener("load", function (event) {
-    alert("Ouais ! Données envoyées et réponse chargée.");
-  });
-  XHR.addEventListener("error", function (event) {
-    alert("Oups! Quelque chose s'est mal passé.");
-  });
+  
   XHR.open("POST", "loginAction.php");
   XHR.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   XHR.send(urlEncodedData);
-  location.href = "profil.php";
+  XHR.onload = function(){
+    console.log(this.responseText);
+    if(this.responseText.trim()=="wrong_password"){
+      alert("Mot de passe incorrect !");
+    }else if(this.responseText.trim()=="no_account"){
+      alert("Aucun email correspondant");
+    }else{
+    window.location.href = "profil.php";}
+  };
 }
 
 /***************************************************************************************/
