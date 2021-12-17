@@ -41,7 +41,7 @@ $dbh = new PDO($dsn, $username, $password) or die("Pb de connexion !");
         <?php
 
         $prixTotal = 0;
-
+        if (array_key_exists('panier', $_SESSION)){ 
         foreach ($_SESSION['panier'] as $identifiant => $quantite) {
 
             $sql = "SELECT nom,marque,description,photo,prix from produits where idProduit='" . $identifiant . "'; ";
@@ -57,11 +57,13 @@ $dbh = new PDO($dsn, $username, $password) or die("Pb de connexion !");
             $prixTotal += $prix * $quantite;
             echo "<li> Nom du Produit : " . $nom . "<br/>Marque :" . $marque . "<br/>Prix à l'unité : " . $prix . "€<br/>Quantite : " . $quantite . "<img src=\"" . $photo . "\"/></li>";
         }
+         echo "</ul>
+         <p> TOTAL : <?php echo $prixTotal; ?>€ </p>
+         <button type=\"button\" onclick=\"paiement()\">Paiement</button>";
+    }
         ?>
-    </ul>
-    <p> TOTAL : <?php echo $prixTotal; ?>€ </p>
-    <button type="button" onclick="paiement()">Paiement</button>
-    <?php echo json_encode($_SESSION['panier']) ?>
+    
+    
 </body>
 
 </html>
