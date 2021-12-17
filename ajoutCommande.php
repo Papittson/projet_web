@@ -35,6 +35,6 @@ foreach($_SESSION['panier'] as $identifiant => $quantite){
         $sth = $dbh->prepare($sql);
         $sth->execute();
 }
-$_SESSION['panier']=[];
+
 
 ?>
