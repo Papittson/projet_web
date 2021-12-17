@@ -21,5 +21,6 @@ session_start(); ?>
             <input type = "password" id = "motDePasse" name = "motDePasse"><br><br>
             <input type="submit" value = "OK" onclick="connexion()">
         </form>
+        <p>Pas encore de compte ? <div onclick="location.href='creationCompte.php'"> Inscrivez vous ici </div></p>
     </body>
 </html>

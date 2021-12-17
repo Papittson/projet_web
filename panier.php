@@ -65,7 +65,7 @@ $dbh = new PDO($dsn, $username, $password) or die("Pb de connexion !");
                 echo "<li> Nom du Produit : " . $nom . "<br/>Marque :" . $marque . "<br/>Prix à l'unité : " . $prix . "€<br/>Quantite : " . $quantite . "<img src=\"" . $photo . "\"/></li>";
             }
             echo "</ul>
-         <p> TOTAL : <?php echo $prixTotal; ?>€ </p>
+         <p> TOTAL : ".$prixTotal."€ </p>
          <button type=\"button\" onclick=\"paiement()\">Paiement</button>";
         }
         ?>
