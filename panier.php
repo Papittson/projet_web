@@ -5,7 +5,7 @@ session_start();
 
 if($_POST){
 
-if(empty($_SESSION['panier'])){
+if(count($_SESSION['panier'])==0){
     echo "Votre panier est vide";
 }
 if(in_array($_POST['idProduit'],$_SESSION['panier'])){
@@ -58,8 +58,8 @@ $dbh = new PDO($dsn, $username, $password) or die("Pb de connexion !");
             ?>
     </ul>
     <p> TOTAL : <?php echo $prixTotal ; ?>€ </p>
-    <button type="button" onclick="location.href='historiqueCommandes.php'">Paiement</button>
-
+    <button type="button" onclick="paiement()">Paiement</button>
+<?php echo json_encode($_SESSION['panier'])?>
 </body>
 </html>
 

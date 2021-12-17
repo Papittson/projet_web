@@ -1,6 +1,6 @@
 :root {
-    --color: rgb(0, 0, 0);
-    --bg-color: rgb(253, 246, 237);
+    --color: #223c37;
+    --bg-color: #e0c6b3;
  }
 
 * {
@@ -17,15 +17,13 @@ html {
 body{
     font-family: 'Rubik', sans-serif;
     background-color: var(--bg-color);
+    color : var(--color);
 }
-.titleRecherche{
-    margin-left: 25px;
-    font-size: 3.2rem;
-}
+
 
 form{
     margin-left: 25px;
-    color:black;
+    
 }
 
 
@@ -51,7 +49,7 @@ form{
     margin-right: 25px;
 }
 
-.loginSigninButton{
+.loginSigninButtonCart{
     border-radius: 25%;
     margin-top: 50px;
 }
@@ -62,28 +60,35 @@ img{
 
 }
 
-.searchButton{
-    background-color: rgb(26, 26, 26);
-    color: rgb(255, 255, 255);
-    ;
-}
+
 
 .prixTitle{
-    color :rgb(41, 41, 41);
+    
     font-size: 2rem;
 }
 
 .resultsBG{
     background-color:var(--bg-color) ;
-    color :rgb(29, 29, 29);
+    
     font-size: 1.5rem;
 }
 
-#listeResultats{
-    margin-left: 50px;
-}
+
 .results{
     font-size: 3rem;
     margin-left: 25px;
+    display: flex;
+    flex-basis: 20%;
+    flex-direction: column;
+    flex-wrap: wrap;
   
+}
+
+li{
+    display: flex;
+    align-items: baseline;
+}
+
+.result_display{
+    display:block;
 }

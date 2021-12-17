@@ -111,6 +111,7 @@ function synchronizeList(type) {
           "onclick",
           `location.href='pageAffichageProduit.php?idProduit=${product.idProduit}'`
         );
+        tag_result_div.setAttribute("class","result_display")
         document.getElementById("listeResultats").appendChild(tag_result_div);
       }
     }
@@ -121,50 +122,5 @@ function synchronizeList(type) {
     return null;
   };
 
-  /*$("#listeMarque").load(
-    "filters.php",
-    `marque=${brandSelected}&categorie=${categorySelected}&prix=${priceSelected}`,
-    function (response, status, xhr) {
-      if (status != "error") {
-        var result = JSON.parse(response);
-        var categories = result.categories;
-        var tag_option_default = document.createElement("option");
-        var option_default = document.createTextNode(
-          "--Choisissez une catégorie--"
-        );
-        tag_option_default.appendChild(option_default);
-
-        document
-          .getElementById("listeCategorie")
-          .appendChild(tag_option_default);
-        for (category of categories) {
-          var tag_option = document.createElement("option");
-          var option_content = document.createTextNode(category.categorie);
-          tag_option.appendChild(option_content);
-          document.getElementById("listeCategorie").appendChild(tag_option);
-        }
-
-        var marques = result.marques;
-        var tag_option_default_marque = document.createElement("option");
-        var option_default_marque = document.createTextNode(
-          "--Choisissez une marque--"
-        );
-        tag_option_default_marque.appendChild(option_default_marque);
-        document
-          .getElementById("listeMarque")
-          .appendChild(tag_option_default_marque);
-        for (brand of marques) {
-          var tag_option_marque = document.createElement("option");
-          var option_content_marque = document.createTextNode(brand.marque);
-          tag_option_marque.appendChild(option_content_marque);
-          document.getElementById("listeMarque").appendChild(tag_option_marque);
-        }
-
-        var priceMax = result.priceMax;
-        document.getElementById("prix").setAttribute("max", priceMax);
-      } else {
-        console.log("Erreur");
-      }
-    }
-  );*/
+  
 }

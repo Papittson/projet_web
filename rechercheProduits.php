@@ -10,6 +10,7 @@ session_start(); ?>
   <link rel="stylesheet" href="stylesheet.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <script src="https://kit.fontawesome.com/0a7077b38f.js" crossorigin="anonymous"></script>
   <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -26,7 +27,7 @@ session_start(); ?>
   <div class="container">
     <div class="subcontainer">
       <div class="searchBar">
-        <h3 class="titleRecherche"> RECHERCHE </h3>
+       
         <form>
           <select name="marque" id="listeMarque" onchange="synchronizeList('marque');">
             <option value="" disabled selected hidden> --Choisissez une marque-- </option>
@@ -62,37 +63,36 @@ session_start(); ?>
 
           <button type='button' onclick="resetFilters();"> Réinitialiser les filtres </button>
 
-          <button class="searchButton"> Rechercher</button>
+          <i class="fas fa-search" onclick="synchronizeList('nom')"></i>
 
         </form>
       </div>
 
-      <div class="loginSigninButton">
-        <?php if(isset($_SESSION['email'])){
-           $sql="SELECT nom,prenom from clients where email='".$_SESSION['email']."';";
-           $sth = $dbh->prepare($sql);
-           $sth->execute();
-           $result=$sth->fetchAll();
-           $info=[];
-           
-           foreach($result[0] as $key => $value){
-               $info[$key]=$value;
-           }
-         echo "<p onclick=location.href=\"profil.php\"> Bienvenue ".$info['nom']." ".$info['prenom']."</p>";
-        }else{
+      <div class="loginSigninButtonCart">
+        <i class="fas fa-shopping-basket" onclick="location.href='panier.php'"></i>
+        <?php if (isset($_SESSION['email'])) {
+          $sql = "SELECT nom,prenom from clients where email='" . $_SESSION['email'] . "';";
+          $sth = $dbh->prepare($sql);
+          $sth->execute();
+          $result = $sth->fetchAll();
+          $info = [];
+
+          foreach ($result[0] as $key => $value) {
+            $info[$key] = $value;
+          }
+          echo "<i class=\"fas fa-user-circle\" onclick=location.href=\"profil.php\"></i><p > Bienvenue " . $info['nom'] . " " . $info['prenom'] . "</p>";
+        } else {
           echo " <button type='button' class=\"signinButton\" onclick=\"location.href='creationCompte.php'\">S'inscrire</button>
           <button type='button' onclick=\"location.href='login.php'\">Se connecter</button> ";
-        }?>
-       
+        } ?>
+
       </div>
 
     </div>
     <div class="resultsBG">
-      <p class="results">Résultats :
-      <ul id="listeResultats">
-
-      </ul>
-      </p>
+      <div class="results" id="listeResultats">
+        
+      </div>
     </div>
 
   </div>
