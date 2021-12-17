@@ -5,7 +5,7 @@ session_start();
 
 if($_POST){
 
-if(is_null($_SESSION['panier']) || empty($_SESSION['panier']) ){
+if(!array_key_exists('panier',$_SESSION) || is_null($_SESSION['panier']) || empty($_SESSION['panier']) ){
     echo "Votre panier est vide";
 }
 if(in_array($_POST['idProduit'],$_SESSION['panier'])){
