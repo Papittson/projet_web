@@ -5,13 +5,20 @@ session_start();
 if ($_POST) {
 
     if (!array_key_exists('panier', $_SESSION) || is_null($_SESSION['panier']) || empty($_SESSION['panier'])) {
-        echo "Votre panier est vide";
+        $_SESSION['panier'] = [];
+        if (array_key_exists('idProduit', $_POST) && array_key_exists('quantite', $_POST)) {
+            $_SESSION['panier'][$_POST['idProduit']] = $_POST['quantite'];
+        }
     } else {
         if (in_array($_POST['idProduit'], $_SESSION['panier'])) {
             $_SESSION['panier'][$_POST['idProduit']] += $_POST['quantite'];
         } else {
             $_SESSION['panier'][$_POST['idProduit']] = $_POST['quantite'];
         }
+    }
+} else {
+    if (!array_key_exists('panier', $_SESSION) || is_null($_SESSION['panier']) || empty($_SESSION['panier'])) {
+        echo "Votre panier est vide";
     }
 }
 $dsn = 'mysql:host=localhost:3306;dbname=technoweb;charset=UTF8';
@@ -41,29 +48,29 @@ $dbh = new PDO($dsn, $username, $password) or die("Pb de connexion !");
         <?php
 
         $prixTotal = 0;
-        if (array_key_exists('panier', $_SESSION)){ 
-        foreach ($_SESSION['panier'] as $identifiant => $quantite) {
+        if (array_key_exists('panier', $_SESSION)) {
+            foreach ($_SESSION['panier'] as $identifiant => $quantite) {
 
-            $sql = "SELECT nom,marque,description,photo,prix from produits where idProduit='" . $identifiant . "'; ";
-            $sth = $dbh->prepare($sql);
-            $sth->execute();
-            $resPdt = $sth->fetchAll();
+                $sql = "SELECT nom,marque,description,photo,prix from produits where idProduit='" . $identifiant . "'; ";
+                $sth = $dbh->prepare($sql);
+                $sth->execute();
+                $resPdt = $sth->fetchAll();
 
-            $nom = $resPdt[0]['nom'];
-            $prix = $resPdt[0]['prix'];
-            $description = $resPdt[0]['description'];
-            $photo = $resPdt[0]['photo'];
-            $marque = $resPdt[0]['marque'];
-            $prixTotal += $prix * $quantite;
-            echo "<li> Nom du Produit : " . $nom . "<br/>Marque :" . $marque . "<br/>Prix à l'unité : " . $prix . "€<br/>Quantite : " . $quantite . "<img src=\"" . $photo . "\"/></li>";
-        }
-         echo "</ul>
+                $nom = $resPdt[0]['nom'];
+                $prix = $resPdt[0]['prix'];
+                $description = $resPdt[0]['description'];
+                $photo = $resPdt[0]['photo'];
+                $marque = $resPdt[0]['marque'];
+                $prixTotal += $prix * $quantite;
+                echo "<li> Nom du Produit : " . $nom . "<br/>Marque :" . $marque . "<br/>Prix à l'unité : " . $prix . "€<br/>Quantite : " . $quantite . "<img src=\"" . $photo . "\"/></li>";
+            }
+            echo "</ul>
          <p> TOTAL : <?php echo $prixTotal; ?>€ </p>
          <button type=\"button\" onclick=\"paiement()\">Paiement</button>";
-    }
+        }
         ?>
-    
-    
+
+
 </body>
 
 </html>
